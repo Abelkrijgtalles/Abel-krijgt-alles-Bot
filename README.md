@@ -8,4 +8,5 @@ A good dutch discord bot for the Abel krijgt alles server: https://abelr.tk/dc
     "token": "your discord bot token",
     "prefix": "your prefix"
 }
-5. type in the terminal: npm start
+5. type in the terminal: npm install nodemon
+6. type in the terminal: npm start
