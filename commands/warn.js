@@ -45,14 +45,21 @@ module.exports.run = async (client, message, args) => {
         var mes = new discord.MessageEmbed()
             .setDescription("PAS OP " + warnUser.user.username)
             .setColor("#ee0000")
-            .addField("Bericht", "Nog één warn en je hebt een ban!!");
+            .addField("Bericht", "Nog één warn en je hebt een kick!!");
 
         message.channel.send({ embeds: [mes] });
 
     } else if (warns[warnUser.id].warns == 3) {
 
-        message.guild.members.ban(warnUser, { reason: reason });
-        message.channel.send(`${warnUser} is verbannen door de bot wegens te veel warns`);
+        response = "https://abelr.tk/dc"
+
+        message.guild.members.kick(warnUser, { reason: reason });
+        warnUser.send(response).then(() => {
+            return;
+        }).catch(() => {
+            return message.reply(`Kunnen de vrienden van ${warnUser} de link sturen: https://abelr.tk/dc zodat diegene weer kan joinen?`)
+        })
+        message.channel.send(`${warnUser} is gekickt door de bot wegens te veel warns`);
 
     }
 
