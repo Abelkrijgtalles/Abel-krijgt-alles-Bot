@@ -1,5 +1,5 @@
 const { Client, Intents, Collection } = require("discord.js");
-const botConfig = require("botConfig.json");
+const botConfig = require("./botConfig.json");
 const fs = require("fs");
 
 const client = new Client({
@@ -24,7 +24,7 @@ for (const file of commandFiles) {
 client.once("ready", () => {
 
     console.log(`${client.user.username} is online`);
-    client.user.setActivity("is dom | %help | Code: https://abelr.tk/akab", { type: "PLAYING" });
+    client.user.setActivity("dat ie slim is | %help | Code: https://abelr.tk/akab", { type: "PLAYING" });
 
 });
 

@@ -6,54 +6,39 @@ module.exports.run = async (client, message, args) => {
 
         var prefix = botConfig.prefix;
 
-        var response = "***Commands van de domme bot***\r\n\n";
-        var general = "***__Algemene ofzo__***\r\n";
-        var moderate = "\n***__Moderate__***\n";
-        var info = "\n***__Info__***\n";
+        var response = "**`Bot commands\n"
+        var general = "\nAlgemeen:\n"
 
         client.commands.forEach(command => {
-
+            
             switch (command.help.category) {
-
                 case "general":
-                    general += `${prefix}${command.help.name} - ${command.help.description}\r\n`
+                    general += `    ${prefix}${command.help.name} - ${command.help.description}\n`
                     break;
-
-            }
-            switch (command.help.category) {
-
-                case "moderate":
-                    moderate += `${prefix}${command.help.name} - ${command.help.description}\r\n`
+                default:
                     break;
-
-            }
-            switch (command.help.category) {
-
-                case "info":
-                    info += `${prefix}${command.help.name} - ${command.help.description}\r\n`
-                    break;
-
             }
 
-        });
+        })
 
-        response += general + info + moderate;
+        response += general + "`**"
 
         message.author.send(response).then(() => {
-            return message.reply("Alle commands staan in je dms")
+            return message.reply("De commands zijn verstuurd naar je DM's!")
         }).catch(() => {
+            message.reply("Ik kan je de commands niet versturen via je DM's dus zeg ik het hier.")
             return message.reply(response)
         })
 
     } catch (error) {
         console.log(error);
-        message.reply("Er is iets misgegaan");
+        message.reply("Er is iets mis gegaan, probeer het later opnieuw.");
     }
 
 }
 
 module.exports.help = {
     name: "help",
-    category: "info",
-    description: "dat is deze command. geen enkelijke andere. alleen deze"
+    category: "general",
+    description: "is deze command."
 }
