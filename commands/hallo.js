@@ -1,11 +1,11 @@
 module.exports.run = async (client, message, args) => {
 
-    return message.channel.send("Hallooooo!!!!!!!!!!!!!");
+    return message.reply("Hallooooo!!!!!!!!!!!!!");
 
 }
 
 module.exports.help = {
     name: "hallo",
     category: "general",
-    description: "zegt hallo. dat doet het. niet meer ofzo. alleen dat"
+    description: "Zegt hallo. Dat doet het. Niet meer ofzo. Alleen dat"
 }
